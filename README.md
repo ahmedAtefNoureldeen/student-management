@@ -7,7 +7,7 @@ This repository contains a **full-stack student management system** with two mai
 ---
 
 ## Demo
-[the-todo.webm]([https://github.com/ahmedAtefNoureldeen/student-management/issues/1#issue-3414149545](https://github.com/ahmedAtefNoureldeen/student-management/issues/1#issue-3414149545))
+[the-todo.webm](https://github.com/ahmedAtefNoureldeen/student-management/issues/1#issue-3414149545)
 
 ## 🚀 Features
 
