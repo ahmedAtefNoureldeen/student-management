@@ -56,21 +56,11 @@ PORT=3001
 NODE_ENV=development
 ```
 
-⚠️ **Important:** Change `JWT_SECRET` to a secure random value in production.
-
-### 4. Initialize the database:
-```bash
-# Run database migrations (if provided)
-npm run migrate
-
-# Or start the server (database will be created automatically)
-npm run dev
-```
 
 
 ### 5. Start the backend server:
 ```bash
-npm run dev
+npm run start:dev
 ```
 
 The backend will be available at: `http://localhost:3001`
