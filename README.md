@@ -7,7 +7,7 @@ This repository contains a **full-stack student management system** with two mai
 ---
 
 ## Demo
-[Student_Management_System.mp4](https://github.com/ahmedAtefNoureldeen/student-management/issues/1#issue-3414149545)
+[student_management_system.webm](https://github.com/user-attachments/assets/80f86677-182f-45e7-92d9-ce637fffe67e)
 
 ## 🚀 Features
 
