@@ -6,8 +6,7 @@ import { useCreateStudent } from '../../../hooks/useCreateStudent';
 import { Input } from '../../../components/ui/Input';
 import { Button } from '../../../components/ui/Button';
 import { Modal } from '../../../components/ui/Modal';
-import { AdvancedSearchBar } from '../../../components/ui/AdvancedSearchBar';
-import type { FilterOptions } from '../../../components/ui/AdvancedSearchBar';
+import { SearchBar } from '../../../components/ui/SearchBar';
 
 export const StudentsPage = () => {
   const navigate = useNavigate();
@@ -21,7 +20,7 @@ export const StudentsPage = () => {
   });
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   
-  const { students, loading, error, meta, searchStudentsAdvanced, changePage, changeLimit, refetch } = useStudents({
+  const { students, loading, error, meta, searchStudents, changePage, changeLimit, refetch } = useStudents({
     page: currentPage,
     limit: pageSize,
   });
@@ -36,22 +35,11 @@ export const StudentsPage = () => {
     }
   }, [navigate]);
 
-  const handleAdvancedSearch = (filters: FilterOptions) => {
-    searchStudentsAdvanced(filters);
+
+    const handleSearch = (term: string) => {
+    searchStudents(term);
   };
 
-  // Extract unique subjects and classes for filter options
-  const availableSubjects = Array.from(new Set(
-    students.flatMap(student => 
-      student.studentClasses.map(sc => sc.class.name)
-    )
-  ));
-
-  const availableClasses = Array.from(new Set(
-    students.flatMap(student => 
-      student.studentClasses.map(sc => sc.class.name)
-    )
-  ));
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -141,15 +129,10 @@ export const StudentsPage = () => {
 
         {/* Search */}
         <div className="mb-6">
-          <AdvancedSearchBar
-            placeholder="Search students by name or ID number..."
-            onSearch={handleAdvancedSearch}
-            className="w-full"
-            showGradeFilters={true}
-            showSubjectFilters={true}
-            showClassFilters={true}
-            availableSubjects={availableSubjects}
-            availableClasses={availableClasses}
+          <SearchBar
+            placeholder="Search classes by name or description..."
+            onSearch={handleSearch}
+            className="max-w-2xl"
           />
         </div>
         
