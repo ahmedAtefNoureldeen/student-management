@@ -2,7 +2,7 @@
 
 This repository contains a **full-stack student management system** with two main projects:
 - **student-management-front** → Frontend (React/Next.js + TailwindCSS + shadcn/ui)
-- **student-management-back** → Backend (Node.js + Express + SQLite with entity models)
+- **student-management-back** → Backend (Nest.js+ SQLite with entity models)
 
 ---
 
@@ -22,16 +22,7 @@ This repository contains a **full-stack student management system** with two mai
 ```
 student-management/
 ├── student-management-front/    # Frontend (Next.js + TailwindCSS)
-│   ├── components/             # Reusable UI components
-│   ├── pages/                  # Next.js pages
-│   ├── styles/                 # CSS and styling files
-│   └── package.json
-└── student-management-back/     # Backend (Node.js + Express + SQLite)
-    ├── entities/               # Database entity models
-    ├── routes/                 # API route handlers
-    ├── middleware/             # Authentication & validation
-    ├── database.sqlite         # SQLite database file
-    └── package.json
+└── student-management-back/     # Backend (Nest.js + SQLite)
 ```
 
 ---
@@ -76,7 +67,6 @@ npm run migrate
 npm run dev
 ```
 
-> The project uses SQLite with entity models (not Prisma). Check the `entities/` or `models/` folder for schema definitions.
 
 ### 5. Start the backend server:
 ```bash
@@ -127,8 +117,7 @@ http://localhost:3000
 - **shadcn/ui** - High-quality UI components
 
 ### Backend:
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web framework
+- **Nest.js** - Web framework
 - **SQLite** - Lightweight database
 - **JWT** - Authentication tokens
 - **Entity Models** - Database schema management
@@ -139,97 +128,7 @@ http://localhost:3000
 
 ---
 
-## 📡 API Endpoints
 
-### Authentication
-```bash
-# Register a new user
-POST /api/auth/register
-Content-Type: application/json
-{
-  "username": "admin",
-  "password": "password123",
-  "email": "admin@example.com"
-}
-
-# Login
-POST /api/auth/login
-Content-Type: application/json
-{
-  "username": "admin",
-  "password": "password123"
-}
-```
-
-### Students
-```bash
-# Get all students
-GET /api/students
-Authorization: Bearer <your_jwt_token>
-
-# Create a new student
-POST /api/students
-Authorization: Bearer <your_jwt_token>
-Content-Type: application/json
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "classId": 1
-}
-
-# Update a student
-PUT /api/students/:id
-Authorization: Bearer <your_jwt_token>
-
-# Delete a student
-DELETE /api/students/:id
-Authorization: Bearer <your_jwt_token>
-```
-
-### Classes
-```bash
-# Get all classes
-GET /api/classes
-Authorization: Bearer <your_jwt_token>
-
-# Create a new class
-POST /api/classes
-Authorization: Bearer <your_jwt_token>
-Content-Type: application/json
-{
-  "name": "Mathematics 101",
-  "description": "Introduction to Mathematics"
-}
-```
-
-### Grades
-```bash
-# Get all grades
-GET /api/grades
-Authorization: Bearer <your_jwt_token>
-
-# Create/Update grades
-POST /api/grades
-Authorization: Bearer <your_jwt_token>
-Content-Type: application/json
-{
-  "studentId": 1,
-  "classId": 1,
-  "grade": "A",
-  "score": 95
-}
-```
-
-### File Upload
-```bash
-# Bulk upload students/grades via CSV
-POST /api/upload
-Authorization: Bearer <your_jwt_token>
-Content-Type: multipart/form-data
-# Form data with file field
-```
-
----
 
 ## 📋 Usage Instructions
 
@@ -300,45 +199,5 @@ npm run migrate  # Run database migrations (if available)
 ```bash
 npm run dev      # Start development server
 npm run build    # Build for production
-npm run start    # Start production server
-npm run lint     # Run ESLint
 ```
 
----
-
-## 📚 Additional Resources
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Express.js Documentation](https://expressjs.com/)
-- [TailwindCSS Documentation](https://tailwindcss.com/docs)
-- [shadcn/ui Components](https://ui.shadcn.com/)
-- [SQLite Documentation](https://sqlite.org/docs.html)
-
----
-
-## 📝 License
-
-This project is for educational purposes. Feel free to use it as a learning resource or starting point for your own projects.
-
----
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-## 📞 Support
-
-If you encounter any issues or have questions, please:
-1. Check the troubleshooting section above
-2. Review the API endpoints documentation
-3. Create an issue in the repository
-
----
-
-**Happy coding! 🎉**
